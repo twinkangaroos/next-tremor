@@ -1,21 +1,20 @@
 'use client'
-import {
-  Card, ProgressBar, BarChart, Grid, Col, DonutChart, Legend, Badge,
-  Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow
-} from '@tremor/react';
+import { Card, DonutChart, Legend } from '@tremor/react';
+// import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
-const sales = [
+const ratio = [
   {
     name: 'PC',
-    sales: 5097,
+    ratio: 5097,
   },
   {
     name: 'iPad',
-    sales: 101,
+    ratio: 101,
   },
   {
     name: 'iPhone',
-    sales: 24,
+    ratio: 24,
   },
 ];
 
@@ -23,22 +22,39 @@ const valueFormatter = (number: number) =>
   `${Intl.NumberFormat('jp').format(number).toString()}`;
 
 export default function Donutchart() {
+    const router = useRouter()
+    // const [value, setValue] = useState<any>("")
+    const valueChange = (v: any) => {
+      // setValue(v)
+      console.log("v.name", v.name)
+      // iPadが選択された場合
+      if (v.name === 'iPad') {
+        router.push('/dashboard/device/ipad')
+      }
+      else if (v.name === 'iPhone') {
+        router.push('/dashboard/device/iphone')
+      }
+      else {
+        router.push('/dashboard/device/pc')
+      }
+    }
+
     return (
         <>
-          <Card className="mx-auto max-w-xl">
-            <span className="text-center block font-mono text-tremor-default text-tremor-content dark:text-dark-tremor-content">
-              ユーザー（デバイスカテゴリ）
-            </span>
+          <Card className="mx-auto">
+            <h3 className="text-tremor-content-strong dark:text-dark-tremor-content-strong font-semibold">
+                  利用デバイスの割合（操作ログより）</h3>
             <div className="flex items-center justify-center space-x-6">
               <DonutChart
-                data={sales}
-                category="sales"
+                data={ratio}
+                category="ratio"
                 index="name"
                 valueFormatter={valueFormatter}
                 colors={['blue', 'cyan', 'indigo']}
-                className="w-60 h-60"
+                className="h-60"
                 label=""
                 showLabel={true}
+                onValueChange={(v) => valueChange(v)}
               />
               <Legend
                 categories={['PC: ' + (Math.round((5097/(5097+101+24))*1000) / 10) + '%', 

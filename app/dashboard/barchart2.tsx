@@ -1,45 +1,55 @@
 'use client'
-import {
-  Card, ProgressBar, BarChart, Grid, Col, DonutChart, Legend, Badge,
-  Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow
-} from '@tremor/react';
+import { Card, BarChart } from '@tremor/react';
 
 const chartdata = [
   {
-    name: 'Topic 1',
-    'Group A': 890,
-    'Group B': 338,
-    'Group C': 538,
-    'Group D': 396,
-    'Group E': 138,
-    'Group F': 436,
+    name: '2024/2/5',
+    '技術者経歴検索': 453,
+    '文献キーワード検索': 455,
+    '文献ダウンロード': 180,
+    '工事情報検索': 110,
   },
   {
-    name: 'Topic 2',
-    'Group A': 289,
-    'Group B': 233,
-    'Group C': 253,
-    'Group D': 333,
-    'Group E': 133,
-    'Group F': 533,
+    name: '2024/2/6',
+    '技術者経歴検索': 535,
+    '文献キーワード検索': 289,
+    '文献ダウンロード': 107,
+    '工事情報検索': 89,
   },
   {
-    name: 'Topic 3',
-    'Group A': 380,
-    'Group B': 535,
-    'Group C': 352,
-    'Group D': 718,
-    'Group E': 539,
-    'Group F': 234,
+    name: '2024/2/7',
+    '技術者経歴検索': 98,
+    '文献キーワード検索': 97,
+    '文献ダウンロード': 51,
+    '工事情報検索': 32,
   },
   {
-    name: 'Topic 4',
-    'Group A': 90,
-    'Group B': 98,
-    'Group C': 28,
-    'Group D': 33,
-    'Group E': 61,
-    'Group F': 53,
+    name: '2024/2/8',
+    '技術者経歴検索': 128,
+    '文献キーワード検索': 124,
+    '文献ダウンロード': 98,
+    '工事情報検索': 33,
+  },
+  {
+    name: '2024/2/9',
+    '技術者経歴検索': 188,
+    '文献キーワード検索': 184,
+    '文献ダウンロード': 88,
+    '工事情報検索': 23,
+  },
+  {
+    name: '2024/2/10',
+    '技術者経歴検索': 208,
+    '文献キーワード検索': 184,
+    '文献ダウンロード': 68,
+    '工事情報検索': 43,
+  },
+  {
+    name: '2024/2/11',
+    '技術者経歴検索': 234,
+    '文献キーワード検索': 214,
+    '文献ダウンロード': 138,
+    '工事情報検索': 73,
   },
 ];
 
@@ -49,22 +59,22 @@ const dataFormatter = (number: number) =>
 export default function Barchart2() {
     return (
         <>
-          <Card className="mx-auto max-w-xl">
+          <Card className="mx-auto">
+            <h3 className="text-tremor-content-strong dark:text-dark-tremor-content-strong font-semibold">
+            カテゴリ別PV数（操作ログより）</h3>
             <BarChart
-              className="mt-6"
+              // className="mt-6"
               data={chartdata}
               index="name"
               categories={[
-                'Group A',
-                'Group B',
-                'Group C',
-                'Group D',
-                'Group E',
-                'Group F',
+                '技術者経歴検索',
+                '文献キーワード検索',
+                '文献ダウンロード',
+                '工事情報検索',
               ]}
               colors={['blue', 'teal', 'amber', 'rose', 'indigo', 'emerald']}
               valueFormatter={dataFormatter}
-              yAxisWidth={48}
+              // yAxisWidth={48}
             />
           </Card>
         </>

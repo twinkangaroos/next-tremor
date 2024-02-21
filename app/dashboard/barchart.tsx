@@ -1,37 +1,34 @@
 'use client'
-import {
-  Card, ProgressBar, BarChart, Grid, Col, DonutChart, Legend, Badge,
-  Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow
-} from '@tremor/react';
+import { Card, BarChart } from '@tremor/react';
 
 const chartdata = [
   {
-    name: 'Amphibians',
-    'Number of threatened species': 2488,
+    name: '2024/2/5',
+    'PV数': 2370,
   },
   {
-    name: 'Birds',
-    'Number of threatened species': 1445,
+    name: '2024/2/6',
+    'PV数': 2162,
   },
   {
-    name: 'Crustaceans',
-    'Number of threatened species': 743,
+    name: '2024/2/7',
+    'PV数': 1680,
   },
   {
-    name: 'Ferns',
-    'Number of threatened species': 281,
+    name: '2024/2/8',
+    'PV数': 2002,
   },
   {
-    name: 'Arachnids',
-    'Number of threatened species': 251,
+    name: '2024/2/9',
+    'PV数': 1934,
   },
   {
-    name: 'Corals',
-    'Number of threatened species': 232,
+    name: '2024/2/10',
+    'PV数': 2112,
   },
   {
-    name: 'Algae',
-    'Number of threatened species': 98,
+    name: '2024/2/11',
+    'PV数': 1898,
   },
 ];
 
@@ -41,14 +38,16 @@ const dataFormatter = (number: number) =>
 export default function Barchart() {
     return (
         <>
-          <Card className="mx-auto max-w-xl">
+          <Card className="mx-auto">
+            <h3 className="text-tremor-content-strong dark:text-dark-tremor-content-strong font-semibold">
+              全PV数の遷移（操作ログより）</h3>
             <BarChart
               data={chartdata}
               index="name"
-              categories={['Number of threatened species']}
+              categories={['PV数']}
               colors={['blue']}
               valueFormatter={dataFormatter}
-              yAxisWidth={48}
+              // yAxisWidth={48}
               onValueChange={(v) => console.log(v)}
             />
           </Card>

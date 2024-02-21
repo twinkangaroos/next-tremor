@@ -1,56 +1,82 @@
 'use client'
 import {
-  Card, ProgressBar, BarChart, Grid, Col, DonutChart, Legend, Badge,
-  Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow
+  Card, Badge, Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow
 } from '@tremor/react';
 
-import { RiFlag2Line } from '@remixicon/react';
+import { RiUserLine } from '@remixicon/react';
 
 const dataTable = [
   {
-    name: 'Viola Amherd',
-    Role: 'Federal Councillor',
-    departement:
-      'The Federal Department of Defence, Civil Protection and Sport (DDPS)',
-    status: 'active',
+    name: 'ログイン技術情報システム',
+    pv: 995,
+    uu: 530,
+    pvPerCapita: 1.9,
   },
   {
-    name: 'Albert Rösti',
-    Role: 'Federal Councillor',
-    departement:
-      'The Federal Department of the Environment, Transport, Energy and Communications (DETEC)',
-    status: 'active',
+    name: '技術者経歴検索・一覧　個人から探す',
+    pv: 960,
+    uu: 170,
+    pvPerCapita: 5.6,
   },
   {
-    name: 'Beat Jans',
-    Role: 'Federal Councillor',
-    departement: 'The Federal Department of Justice and Police (FDJP)',
-    status: 'active',
+    name: '技術・安全品質　情報検索',
+    pv: 805,
+    uu: 219,
+    pvPerCapita: 3.7,
   },
   {
-    name: 'Ignazio Cassis',
-    Role: 'Federal Councillor',
-    departement: 'The Federal Department of Foreign Affairs (FDFA)',
-    status: 'active',
+    name: 'プレビュー',
+    pv: 633,
+    uu: 175,
+    pvPerCapita: 3.6,
   },
   {
-    name: 'Karin Keller-Sutter',
-    Role: 'Federal Councillor',
-    departement: 'The Federal Department of Finance (FDF)',
-    status: 'active',
+    name: 'ログイン安全品質システム',
+    pv: 399,
+    uu: 152,
+    pvPerCapita: 2.6,
   },
   {
-    name: 'Guy Parmelin',
-    Role: 'Federal Councillor',
-    departement:
-      'The Federal Department of Economic Affairs, Education and Research (EAER)',
-    status: 'active',
+    name: '技術情報・安全品質システムTOP',
+    pv: 374,
+    uu: 184,
+    pvPerCapita: 2.0,
   },
   {
-    name: 'Elisabeth Baume-Schneider',
-    Role: 'Federal Councillor',
-    departement: 'The Federal Department of Home Affairs (FDHA)',
-    status: 'active',
+    name: '',
+    pv: 338,
+    uu: 84,
+    pvPerCapita: 4.0,
+  },
+  {
+    name: '工事情報検索・一覧',
+    pv: 231,
+    uu: 37,
+    pvPerCapita: 6.2,
+  },
+  {
+    name: 'お知らせ詳細',
+    pv: 190,
+    uu: 92,
+    pvPerCapita: 2.1,
+  },
+  {
+    name: '技術者経歴検索・一覧　資格から探す',
+    pv: 87,
+    uu: 15,
+    pvPerCapita: 5.8,
+  },
+  {
+    name: '文献詳細',
+    pv: 58,
+    uu: 26,
+    pvPerCapita: 2.2,
+  },
+  {
+    name: '聞いてみよう！技術110番　質問詳細',
+    pv: 44,
+    uu: 24,
+    pvPerCapita: 1.8,
   },
 ];
 
@@ -58,14 +84,15 @@ export default function Tablechart() {
     return (
         <>
           <Card className="mx-auto max-w-7xl">
-                <h3 className="text-tremor-content-strong dark:text-dark-tremor-content-strong font-semibold">List of Swiss Federal Councillours</h3>
+                <h3 className="text-tremor-content-strong dark:text-dark-tremor-content-strong font-semibold">
+                  見られているページ</h3>
                 <Table className="mt-5">
                 <TableHead>
                     <TableRow>
-                    <TableHeaderCell>Name</TableHeaderCell>
-                    <TableHeaderCell>Position</TableHeaderCell>
-                    <TableHeaderCell>Department</TableHeaderCell>
-                    <TableHeaderCell>Status</TableHeaderCell>
+                    <TableHeaderCell>ページタイトル</TableHeaderCell>
+                    <TableHeaderCell>PV</TableHeaderCell>
+                    <TableHeaderCell>ユーザー数</TableHeaderCell>
+                    <TableHeaderCell>1人あたりPV</TableHeaderCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -73,14 +100,14 @@ export default function Tablechart() {
                     <TableRow key={item.name}>
                         <TableCell>{item.name}</TableCell>
                         <TableCell>
-                        {item.Role}
+                          {item.pv}
                         </TableCell>
                         <TableCell>
-                        {item.departement}
+                          {item.uu}
                         </TableCell>
                         <TableCell>
-                        <Badge color="emerald" icon={RiFlag2Line}>
-                            {item.status}
+                        <Badge color="emerald" icon={RiUserLine}>
+                            {item.pvPerCapita}
                         </Badge>
                         </TableCell>
                     </TableRow>

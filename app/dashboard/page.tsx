@@ -1,14 +1,12 @@
 'use client'
-import {
-    Card, ProgressBar, BarChart, Grid, Col, DonutChart, Legend, Badge,
-    Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow
-} from '@tremor/react';
+import { Grid, Col } from '@tremor/react';
 
 import Barchart from './barchart'
 import Barchart2 from './barchart2'
 import Donutchart from './donutchart'
 import Tablechart from './tablechart'
 // import Progressbar from './progressbar'
+import Linechart from './linechart'
 
 
 export default function Main() {
@@ -21,10 +19,13 @@ export default function Main() {
                 <Col numColSpan={4}>
                     <Donutchart />
                 </Col>
-                <Col numColSpan={2}>
+                <Col numColSpan={4}>
                     <Barchart />
                 </Col>
-                <Col numColSpan={2}>
+                <Col numColSpan={4}>
+                    <Linechart />
+                </Col>
+                <Col numColSpan={4}>
                     <Barchart2 />
                 </Col>
                 <Col numColSpan={4}>

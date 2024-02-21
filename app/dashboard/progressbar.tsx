@@ -1,8 +1,5 @@
 'use client'
-import {
-  Card, ProgressBar, BarChart, Grid, Col, DonutChart, Legend, Badge,
-  Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow
-} from '@tremor/react';
+import { Card, ProgressBar } from '@tremor/react';
 
 export default function Progressbar() {
     return (
